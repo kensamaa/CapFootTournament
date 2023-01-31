@@ -4,6 +4,7 @@ namespace Domain.Entites
 {
 	public class Team
 	{
+       
 		public Guid Id { get; set; }
         public string Name { get; set; }
         public Guid GroupeId { get; set; }
