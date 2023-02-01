@@ -62,3 +62,21 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
+  TestStage:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Architecture.Tests
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core architescture tests for the layers
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: "7.0.x"
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+       - name: Test
+        run: dotnet test --no-restore --verbosity normal
+
