@@ -20,10 +20,7 @@
     <None Remove="Features\Capgemini\Queries\GetAllCapgemini\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Contracts\Repository\" />
-    <Folder Include="MappingProfiles\" />
-    <Folder Include="Features\" />
+    <Folder Include="Features\Tournament\Commands\" />
     <Folder Include="Features\Capgemini\" />
     <Folder Include="Features\Capgemini\Queries\" />
     <Folder Include="Features\Capgemini\Commands\" />
