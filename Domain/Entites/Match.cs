@@ -12,7 +12,7 @@ public class Match:Entity
 	public int NumberGoasTeamB { get; set; }
 	public DateTime MatchStart { get; set; }
 	public DateTime MathEnd { get; set; }
-	public string RefereeName { get; set; }
-     
+	public string RefereeName { get; set; } = string.Empty;
+
 }
 

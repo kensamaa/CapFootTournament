@@ -6,9 +6,9 @@ namespace Domain.Entites;
 public class Player:Entity
 {
    
-    public string Name { get; set; }
-    public string FamilyName { get; set; }
-    public string Email { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string FamilyName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
     public Guid TeamId { get; set; }
     public List<Card> Cards { get; set; }
 

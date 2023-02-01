@@ -5,8 +5,8 @@ namespace Domain.Entites;
 
 public class Tournament:Entity
 {
-  
-    public String Name { get; set; }
+
+    public String Name { get; set; } = string.Empty;
    
 }
 

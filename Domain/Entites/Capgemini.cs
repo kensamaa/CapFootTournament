@@ -5,9 +5,9 @@ namespace Domain.Entites;
 public class Capgemini : Entity
 {
 
-    string Name { get; set; }
-    string Country { get; set; }
-    string City { get; set; }
+    string Name { get; set; } = string.Empty;
+    string Country { get; set; } = string.Empty;
+    string City { get; set; } = string.Empty;
     DateTime DateCreation { get; set; }
 
    
