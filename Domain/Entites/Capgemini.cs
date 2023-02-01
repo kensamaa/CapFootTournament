@@ -5,10 +5,10 @@ namespace Domain.Entites;
 public class Capgemini : Entity
 {
 
-    string Name { get; set; } = string.Empty;
-    string Country { get; set; } = string.Empty;
-    string City { get; set; } = string.Empty;
-    DateTime DateCreation { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Country { get; set; } = string.Empty;
+    public string City { get; set; } = string.Empty;
+    public DateTime DateCreation { get; set; }
 
    
 }

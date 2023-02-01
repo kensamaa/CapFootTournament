@@ -1,4 +1,5 @@
 ﻿using System;
+using Application.Features.Capgemini.Queries.GetAllCapgemini;
 using AutoMapper;
 using Domain.Entites;
 namespace Application.MappingProfiles;

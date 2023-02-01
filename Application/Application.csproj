@@ -13,11 +13,21 @@
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="MediatR.Extensions.Microsoft.DependencyInjection" />
     <None Remove="MappingProfiles\" />
+    <None Remove="Features\" />
+    <None Remove="Features\Capgemini\" />
+    <None Remove="Features\Capgemini\Queries\" />
+    <None Remove="Features\Capgemini\Commands\" />
+    <None Remove="Features\Capgemini\Queries\GetAllCapgemini\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contracts\" />
     <Folder Include="Contracts\Repository\" />
     <Folder Include="MappingProfiles\" />
+    <Folder Include="Features\" />
+    <Folder Include="Features\Capgemini\" />
+    <Folder Include="Features\Capgemini\Queries\" />
+    <Folder Include="Features\Capgemini\Commands\" />
+    <Folder Include="Features\Capgemini\Queries\GetAllCapgemini\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
