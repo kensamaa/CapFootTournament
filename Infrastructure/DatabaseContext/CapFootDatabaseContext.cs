@@ -11,7 +11,8 @@ public class CapFootDatabaseContext : DbContext
 	{
 
 	}
-	public DbSet<Capgemini> Capgemini { get; set; }
+	public DbSet<Capgemini> Capgeminis { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 		modelBuilder.ApplyConfigurationsFromAssembly(typeof(CapFootDatabaseContext).Assembly);
