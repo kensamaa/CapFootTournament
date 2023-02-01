@@ -1,10 +1,9 @@
 ﻿using System;
-namespace Domain.Entites
+namespace Domain.Entites;
+
+public enum CardType
 {
-	public enum CardType
-	{
-		 Red,
-		 Yellow
-	}
+    Red,
+    Yellow
 }
 

@@ -1,16 +1,12 @@
 ﻿using System;
-namespace Domain.Entites
+using Domain.Common;
+
+namespace Domain.Entites;
+
+public class Tournament:Entity
 {
-	public class Tournament
-	{
-		public Guid Id { get; set; }
-		public String Name { get; set; }
-		public DateTime CreatedAt { get; set; }
-
-		public Tournament()
-		{
-
-		}
-	}
+  
+    public String Name { get; set; }
+   
 }
 

@@ -1,15 +1,12 @@
 ﻿using System;
-namespace Domain.Entites
+using Domain.Common;
+
+namespace Domain.Entites;
+
+public class Card:Entity
 {
-	public class Card
-	{
-		public Guid Id { get; set; }
-		public CardType Color { get; set; }
-        public DateTime ReceptionDate { get; set; }
-        public Card()
-		{
-			
-		}
-	}
+    public CardType Color { get; set; }
+    public DateTime ReceptionDate { get; set; }
+   
 }
 
