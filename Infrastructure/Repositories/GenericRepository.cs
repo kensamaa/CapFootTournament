@@ -1,11 +1,12 @@
 ﻿using System;
 using Application.Contracts.Repository;
+using Domain.Common;
 using Infrastructure.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : Entity
     {
         protected readonly CapFootDatabaseContext _context;
 
@@ -31,12 +32,12 @@ namespace Infrastructure.Repositories
 
         public async Task<IReadOnlyList<T>> GetAsync()
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(Guid pId)
         {
-            return await _context.Set<T>().FindAsync(pId);
+            return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(q=>q.Id==pId);
         }
 
         public async Task UpdateAsync(T pEntity)
