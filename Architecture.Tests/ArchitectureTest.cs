@@ -12,8 +12,6 @@ public class ArchitectureTest
     private const string InfrastructureNamespace = "Infrastructure";
     private const string PresentationNamespace = "Presentation";
     private const string WebNamespace = "Web";
-
-
     [Fact]
     public void Domain_Should_not_HaveDependencyOnOtherProjects()
     {

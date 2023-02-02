@@ -19,8 +19,6 @@ namespace Infrastructure.Repositories
         {
             await _context.AddAsync(pEntity);
             await _context.SaveChangesAsync();
-
-
         }
 
         public async Task DeleteAsync(T pEntity)
@@ -28,7 +26,7 @@ namespace Infrastructure.Repositories
              _context.Remove(pEntity);
             await _context.SaveChangesAsync();
 
-        } 
+        }
 
         public async Task<IReadOnlyList<T>> GetAsync()
         {

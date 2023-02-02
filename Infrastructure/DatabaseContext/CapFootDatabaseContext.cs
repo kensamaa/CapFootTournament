@@ -16,7 +16,6 @@ public class CapFootDatabaseContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 		modelBuilder.ApplyConfigurationsFromAssembly(typeof(CapFootDatabaseContext).Assembly);
-		
         base.OnModelCreating(modelBuilder);
     }
 
@@ -30,7 +29,6 @@ public class CapFootDatabaseContext : DbContext
             {
 				entry.Entity.DateCreated = DateTime.Now;
             }
-        
 		}
         return base.SaveChangesAsync(cancellationToken);
 

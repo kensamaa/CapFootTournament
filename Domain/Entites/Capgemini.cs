@@ -9,7 +9,5 @@ public class Capgemini : Entity
     public string Country { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
     public DateTime DateCreation { get; set; }
-
-   
 }
 

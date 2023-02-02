@@ -11,8 +11,7 @@ namespace Infrastructure.Repositories
 {
     public class TournamentRepository : GenericRepository<Tournament>, ITournamentRepository
     {
-        public TournamentRepository(CapFootDatabaseContext context) :base(context) { 
-        
+        public TournamentRepository(CapFootDatabaseContext context) :base(context) {
         }
         public Task<bool> IsTournamentUnique(string name)
         {

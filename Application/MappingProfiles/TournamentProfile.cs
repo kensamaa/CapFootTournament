@@ -14,7 +14,5 @@ namespace Application.MappingProfiles
         public TournamentProfile() {
             CreateMap<TournamentDto, Tournament>().ReverseMap();
         }
-
-        
     }
 }

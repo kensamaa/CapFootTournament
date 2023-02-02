@@ -11,4 +11,4 @@ namespace Domain
     {
         public static readonly Assembly Assembly = typeof(AssemblyReference).Assembly;
     }
-} 
+}
