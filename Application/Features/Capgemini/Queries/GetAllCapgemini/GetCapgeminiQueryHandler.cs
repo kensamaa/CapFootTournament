@@ -22,7 +22,7 @@ public class GetCapgeminiQueryHandler : IRequestHandler<GetCapgeminiQuery, List<
         var Capgeminis = await _capgeminiRepository.GetAsync();
 
         //convert data object to dto object
-        var data = _mapper.Map<List<CapgeminiDto>>(Capgeminis);
+        var data = _mapper.Map<List<CapgeminiDto>>(Capgeminis); 
 
         //return dto object
         return data;

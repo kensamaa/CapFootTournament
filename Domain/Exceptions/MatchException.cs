@@ -1,28 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
-namespace Domain.Exceptions
+namespace Domain.Exceptions;
+[Serializable]
+public class MatchException : Exception
 {
-    internal class MatchException : Exception
+    public MatchException(string name, object key) : base($"{name} ({key}) was not found")
     {
-        public MatchException()
-        {
-        }
+    }
 
-        public MatchException(string? message) : base(message)
-        {
-        }
+    public MatchException(string? message) : base(message)
+    {
+    }
 
-        public MatchException(string? message, Exception? innerException) : base(message, innerException)
-        {
-        }
+    public MatchException(string? message, Exception? innerException) : base(message, innerException)
+    {
+    }
 
-        protected MatchException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+    protected MatchException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
     }
 }

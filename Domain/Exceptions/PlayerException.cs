@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
-namespace Domain.Exceptions
+namespace Domain.Exceptions;
+
+[Serializable]
+public sealed class PlayerException : Exception
 {
-    public sealed class PlayerException : Exception
+    public PlayerException(string name, object key) : base($"{name} ({key}) was not found")
     {
-        public PlayerException()
-        {
-        }
+    }
 
-        public PlayerException(string? message) : base(message)
-        {
-        }
+    public PlayerException(string? message) : base(message)
+    {
+    }
 
-        public PlayerException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+    public PlayerException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
 
-        public PlayerException(string? message, Exception? innerException) : base(message, innerException)
-        {
-        }
+    public PlayerException(string? message, Exception? innerException) : base(message, innerException)
+    {
     }
 }
