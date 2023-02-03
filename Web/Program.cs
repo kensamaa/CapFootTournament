@@ -1,9 +1,28 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿
 
+using Application;
+using Infrastructure;
+
+var builder = WebApplication.CreateBuilder(args);
+//adding the presentation layer
+var PresentationAssembly = typeof(Presentation.AssemblyReference).Assembly;
 // Add services to the container.
+
+builder.Services.AddApplicationServices();
+builder.Services.AddPersistanceService(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//adding the presentation layer
+builder.Services.AddControllers()
+    .AddApplicationPart(PresentationAssembly);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("all", builder => builder.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+});
 
 var app = builder.Build();
 

@@ -16,6 +16,15 @@
 ![](img/d.png)
 ![](img/ud.png)
 
-## reference
+## Creating the sql serer container command
+
+<p>docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=myPass123" -p 1433:1433 --name primeHotelDb -d mcr.microsoft.com/mssql/server:2017-latest</p>
+
+## Migration code
+
+<p>add-migration InitialMigration</p>
+<p>Update-Database</p>
+
+## Reference
 
 <a href="https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165"> clean architecture medium</a>
