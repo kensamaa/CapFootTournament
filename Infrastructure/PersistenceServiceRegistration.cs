@@ -18,7 +18,8 @@ public static class PersistenceServiceRegistration
 		});
 		services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 		services.AddScoped<ICapgeminiRepository, CapgeminiRepository>();
-		return services;
+        services.AddScoped<ITournamentRepository, TournamentRepository>();
+        return services;
 
 	}
 }

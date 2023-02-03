@@ -12,7 +12,7 @@ public class CapFootDatabaseContext : DbContext
 
     }
     public DbSet<Capgemini> Capgeminis { get; set; }
-
+    public DbSet<Tournament> Tournaments { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CapFootDatabaseContext).Assembly);
