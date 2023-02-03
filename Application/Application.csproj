@@ -21,7 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Tournament\Commands\" />
-    <Folder Include="Features\Capgemini\Queries\" />
     <Folder Include="Features\Capgemini\Queries\GetAllCapgemini\" />
   </ItemGroup>
   <ItemGroup>
