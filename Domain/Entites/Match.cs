@@ -3,9 +3,9 @@ using Domain.Common;
 
 namespace Domain.Entites;
 
-public class Match:Entity
+public sealed class Match:Entity
 {
-	
+
 	public Guid TeamAId { get; set; }
 	public Guid TeamBId { get; set; }
 	public int NumberGoalsTeamA { get; set; }

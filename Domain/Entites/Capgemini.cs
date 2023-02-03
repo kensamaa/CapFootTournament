@@ -2,7 +2,7 @@
 
 namespace Domain.Entites;
 
-public class Capgemini : Entity
+public sealed class Capgemini : Entity
 {
     public string Name { get; set; } = string.Empty;
     public string Country { get; set; } = string.Empty;
