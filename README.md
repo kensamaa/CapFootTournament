@@ -25,6 +25,10 @@
 <p>add-migration InitialMigration</p>
 <p>Update-Database</p>
 
+## diagram
+
+https://dbdiagram.io/d/63dbf72c296d97641d7e0ecd
+
 ## Reference
 
 <a href="https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165"> clean architecture medium</a>
