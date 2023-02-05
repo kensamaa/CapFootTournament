@@ -10,7 +10,8 @@ var PresentationAssembly = typeof(Presentation.AssemblyReference).Assembly;
 
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistanceService(builder.Configuration);
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //adding the presentation layer

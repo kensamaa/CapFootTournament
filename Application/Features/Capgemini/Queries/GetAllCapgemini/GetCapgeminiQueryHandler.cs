@@ -17,7 +17,7 @@ public class GetCapgeminiQueryHandler : IRequestHandler<GetCapgeminiQuery, List<
         _Logger = logger;
     }
 
-    
+
 
     public async Task<List<CapgeminiDto>> Handle(GetCapgeminiQuery request, CancellationToken cancellationToken)
     {

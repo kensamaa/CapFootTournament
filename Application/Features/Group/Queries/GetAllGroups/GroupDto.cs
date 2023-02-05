@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Group.Queries.GetAllGroups
 {
-    public class GroupDetailsDto
+    public class GroupDto
     {
         public Guid TournamentId { get; set; }
         public string Name { get; set; } = string.Empty;
