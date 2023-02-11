@@ -1,19 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1704.3
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{58D65E0A-CFAD-46DA-AA4E-9413FC612B69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{58D65E0A-CFAD-46DA-AA4E-9413FC612B69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{E7DEFF07-A2FD-4E81-A96B-84E622577711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{E7DEFF07-A2FD-4E81-A96B-84E622577711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{000EB674-CB22-4477-8CD5-28A853003BF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{000EB674-CB22-4477-8CD5-28A853003BF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Architecture.Tests", "Architecture.Tests\Architecture.Tests.csproj", "{8C59974D-C512-40FD-B603-6898F335889C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture.Tests", "Architecture.Tests\Architecture.Tests.csproj", "{8C59974D-C512-40FD-B603-6898F335889C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{B8798369-83A1-4B10-ACC7-178EC4C15BCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{B8798369-83A1-4B10-ACC7-178EC4C15BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{3AAC238E-26C9-4D08-9C2D-A6F663DD1401}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{3AAC238E-26C9-4D08-9C2D-A6F663DD1401}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapFootTournament.BlazorUI", "CapFootTournament.BlazorUI\CapFootTournament.BlazorUI.csproj", "{A4B27193-8EBB-4253-B85E-242CDA0EDA6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{3AAC238E-26C9-4D08-9C2D-A6F663DD1401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AAC238E-26C9-4D08-9C2D-A6F663DD1401}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AAC238E-26C9-4D08-9C2D-A6F663DD1401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B27193-8EBB-4253-B85E-242CDA0EDA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B27193-8EBB-4253-B85E-242CDA0EDA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B27193-8EBB-4253-B85E-242CDA0EDA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B27193-8EBB-4253-B85E-242CDA0EDA6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
