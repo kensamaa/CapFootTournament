@@ -1,8 +1,14 @@
 ﻿@page "/Capgeminis"
+@inject HttpClient Http
 <PageTitle>Capgeminis</PageTitle>
 
 <h3>Capgeminis</h3>
+<p>@obj</p>
 
 @code {
-
+	string obj;
+	protected override async Task OnInitializedAsync()
+	{
+		 obj = await Http.GetStringAsync("https://localhost:7147/api/Capgemini");
+	}
 }
