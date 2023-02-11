@@ -1,14 +1,43 @@
 ﻿@page "/Capgeminis"
+@using CapFootTournament.BlazorUI.Models;
 @inject HttpClient Http
 <PageTitle>Capgeminis</PageTitle>
 
 <h3>Capgeminis</h3>
-<p>@obj</p>
-
+<table class="table">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Name</th>
+			<th>Country</th>
+			<th>City</th>
+			<th>DateCreation</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var capgemini in ListCapgemini)
+		{
+			<tr>
+				<th>@capgemini.Id</th>
+				<th>@capgemini.Name</th>
+				<th>@capgemini.Country</th>
+				<th>@capgemini.City</th>
+				<th>@capgemini.DateCreation.ToString()</th>
+			</tr>
+		}
+	</tbody>
+</table>
 @code {
-	string obj;
+	List<Capgemini> ListCapgemini = new ();
 	protected override async Task OnInitializedAsync()
 	{
-		 obj = await Http.GetStringAsync("https://localhost:7147/api/Capgemini");
+		//obj = await Http.GetStringAsync("https://localhost:7147/api/Capgemini");
+		var res = await Http.GetFromJsonAsync<List<Capgemini>>("https://localhost:7147/api/Capgemini");
+		if (res != null)
+		{
+			ListCapgemini = res;
+		}
+
+
 	}
 }
