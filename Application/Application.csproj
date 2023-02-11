@@ -21,8 +21,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Group\Commands\" />
-    <Folder Include="Features\Tournament\Commands\" />
     <Folder Include="Features\Capgemini\Queries\GetAllCapgemini\" />
+    <Folder Include="Features\Tournament\Commands\DeleteTournament\" />
+    <Folder Include="Features\Tournament\Commands\AssignCapgeminisToTournament\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

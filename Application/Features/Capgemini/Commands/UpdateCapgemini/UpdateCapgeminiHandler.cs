@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Features.Capgemini.Commands.UpdateCapgemini;
 
-public class UpdateCapgeminiHandler : IRequestHandler<UpdateCapgeminiCommand, Unit>
+public class UpdateCapgeminiHandler : IRequestHandler<UpdateTournamentCommand, Unit>
 {
     private readonly IMapper _mapper;
     private readonly ICapgeminiRepository _capgeminiRepository;
@@ -14,7 +14,7 @@ public class UpdateCapgeminiHandler : IRequestHandler<UpdateCapgeminiCommand, Un
         _capgeminiRepository = capgeminiRepository;
     }
 
-    public async Task<Unit> Handle(UpdateCapgeminiCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(UpdateTournamentCommand request, CancellationToken cancellationToken)
     {
         //validate incoming data
 

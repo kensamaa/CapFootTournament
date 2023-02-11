@@ -11,7 +11,7 @@ public class Capgemini : Entity
     public string Country { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
     public int NumberOfTeams { get; set; } = 0;
-    public virtual ICollection<Tournament> Tournaments { get; set; } 
+    public virtual ICollection<Tournament> Tournaments { get; set; }
     public DateTime DateCreation { get; set; }
 }
 

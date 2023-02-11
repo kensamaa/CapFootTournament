@@ -15,6 +15,20 @@ namespace Infrastructure.Repositories
         public TournamentRepository(CapFootDatabaseContext context) :base(context) {
         }
 
+        public  Task assignCapgeminiListsToTournament(List<Capgemini> pCapgeminiList,Tournament pTournament)
+        {
+            var lCapgeminiList = _context.Tournaments.Find(pTournament);
+            if (lCapgeminiList == null) return Task.CompletedTask;
+
+            foreach(Capgemini cap in pCapgeminiList)
+            {
+                lCapgeminiList.Capgeminis.Add(cap);
+            }
+            this._context.SaveChanges();
+            return  Task.CompletedTask;
+
+        }
+
         public Task<List<Groupe>> getListGroupes(Guid tournamentId)
         {
             throw new NotImplementedException();

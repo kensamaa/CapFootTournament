@@ -14,5 +14,6 @@ namespace Application.Contracts.Repository
         Task<List<Groupe>> runDrawStage(List<Team> teams);
         Task<List<Groupe>> getListGroupes(Guid tournamentId);
 
+        Task assignCapgeminiListsToTournament(List<Capgemini> pCapgeminiList,Tournament pTournament);
     }
 }
