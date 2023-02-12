@@ -4,7 +4,7 @@ namespace Domain.Entites;
 
 public class Capgemini : Entity
 {
-    public Capgemini() { 
+    public Capgemini() {
         this.capgeminiTournament = new List<CapgeminiTournament>();
     }
     public string Name { get; set; } = string.Empty;
@@ -14,4 +14,3 @@ public class Capgemini : Entity
     public virtual IList<CapgeminiTournament> capgeminiTournament { get; set; }
     public DateTime DateCreation { get; set; }
 }
-

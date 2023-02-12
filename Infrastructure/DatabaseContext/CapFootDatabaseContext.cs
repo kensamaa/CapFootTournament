@@ -31,7 +31,6 @@ public class CapFootDatabaseContext : DbContext
             .WithMany(s => s.capgeminiTournament)
             .HasForeignKey(sc => sc.tournamentId);
         //End configure many to many between Capgemini and Tournament
-        
         base.OnModelCreating(modelBuilder);
     }
 

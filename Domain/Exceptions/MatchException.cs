@@ -3,7 +3,7 @@
 namespace Domain.Exceptions;
 [Serializable]
 public class MatchException : Exception
-{
+{//////////////
     public MatchException(string name, object key) : base($"{name} ({key}) was not found")
     {
     }

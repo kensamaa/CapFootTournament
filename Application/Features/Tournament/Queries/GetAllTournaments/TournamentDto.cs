@@ -17,6 +17,6 @@ namespace Application.Features.Tournament.Queries.GetAllTournaments
         public Boolean isSignUpCompleted { get; set; }
         public Boolean isFinished { get; set; }
         public String CountryOrganisation { get; set; } = string.Empty;
-        public List<CapgeminiDto> ListCapgeminis { get; set; } = new List<CapgeminiDto> { };
+
     }
 }

@@ -16,7 +16,8 @@ namespace Infrastructure.Repositories
 
         public Task<List<Capgemini>> GetAllCapgeminisInTournaments(Guid pIdTournament)
         {
-            return (Task<List<Capgemini>>) _context.CapgeminiTournaments.Where(ct => ct.tournamentId.Equals(pIdTournament));
+            return _context.CapgeminiTournaments.Where(ct => ct.tournamentId.Equals(pIdTournament))
+                .Select(ct => ct.capgemini).ToListAsync();
         }
 
         public Task<List<Tournament>> GetAllTournamentsByCapgeminiId(Guid pIdCapgemini)
