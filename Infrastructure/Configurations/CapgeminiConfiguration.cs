@@ -18,6 +18,17 @@ namespace Infrastructure.Configuration
                 Name = "TS",
                 Country = "Morocco",
                 City = "Casablanca",
+                NumberOfTeams= 16,
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now
+            },
+            new Capgemini
+            {
+                Id = Guid.NewGuid(),
+                Name = "TS",
+                Country = "Morocco",
+                City = "Rabat",
+                NumberOfTeams= 8,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now
             });

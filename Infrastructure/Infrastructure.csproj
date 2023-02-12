@@ -19,7 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DatabaseContext\" />
-    <Folder Include="Configurations\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

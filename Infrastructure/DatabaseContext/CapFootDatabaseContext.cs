@@ -14,9 +14,24 @@ public class CapFootDatabaseContext : DbContext
     public DbSet<Capgemini> Capgeminis { get; set; }
     public DbSet<Tournament> Tournaments { get; set; }
     public DbSet<Groupe> Groups { get; set; }
+    public DbSet<CapgeminiTournament> CapgeminiTournaments { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CapFootDatabaseContext).Assembly);
+        //Begin configure many to many between Capgemini and Tournament
+        modelBuilder.Entity<CapgeminiTournament>().HasKey(sc => new { sc.tournamentId, sc.capgeminiId });
+        modelBuilder.Entity<CapgeminiTournament>()
+        .HasOne(sc => sc.capgemini)
+        .WithMany(s => s.capgeminiTournament)
+        .HasForeignKey(sc => sc.capgeminiId);
+
+
+        modelBuilder.Entity<CapgeminiTournament>()
+            .HasOne(sc => sc.tournament)
+            .WithMany(s => s.capgeminiTournament)
+            .HasForeignKey(sc => sc.tournamentId);
+        //End configure many to many between Capgemini and Tournament
+        
         base.OnModelCreating(modelBuilder);
     }
 

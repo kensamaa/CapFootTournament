@@ -4,6 +4,7 @@ using Infrastructure.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(CapFootDatabaseContext))]
-    partial class CapFootDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230212124406_updateDataCapgemini")]
+    partial class updateDataCapgemini
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,21 @@ namespace Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CapgeminiTournament", b =>
+                {
+                    b.Property<Guid>("CapgeminisId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TournamentsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CapgeminisId", "TournamentsId");
+
+                    b.HasIndex("TournamentsId");
+
+                    b.ToTable("CapgeminiTournament");
+                });
 
             modelBuilder.Entity("Domain.Entites.Capgemini", b =>
                 {
@@ -59,41 +77,26 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4bb044cf-bd62-4ec0-9f95-faaaacc03554"),
+                            Id = new Guid("50630809-0da5-43c7-b8e1-08135a031773"),
                             City = "Casablanca",
                             Country = "Morocco",
-                            DateCreated = new DateTime(2023, 2, 12, 14, 12, 28, 848, DateTimeKind.Local).AddTicks(1215),
+                            DateCreated = new DateTime(2023, 2, 12, 13, 44, 6, 5, DateTimeKind.Local).AddTicks(3463),
                             DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2023, 2, 12, 14, 12, 28, 848, DateTimeKind.Local).AddTicks(1275),
+                            DateModified = new DateTime(2023, 2, 12, 13, 44, 6, 5, DateTimeKind.Local).AddTicks(3523),
                             Name = "TS",
                             NumberOfTeams = 16
                         },
                         new
                         {
-                            Id = new Guid("f905d4e5-e7ca-4b1b-9e18-1538ff6ea50f"),
+                            Id = new Guid("2307aad8-f07b-497a-a02b-db23bc0c6ee0"),
                             City = "Rabat",
                             Country = "Morocco",
-                            DateCreated = new DateTime(2023, 2, 12, 14, 12, 28, 848, DateTimeKind.Local).AddTicks(1282),
+                            DateCreated = new DateTime(2023, 2, 12, 13, 44, 6, 5, DateTimeKind.Local).AddTicks(3530),
                             DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2023, 2, 12, 14, 12, 28, 848, DateTimeKind.Local).AddTicks(1284),
+                            DateModified = new DateTime(2023, 2, 12, 13, 44, 6, 5, DateTimeKind.Local).AddTicks(3532),
                             Name = "TS",
                             NumberOfTeams = 8
                         });
-                });
-
-            modelBuilder.Entity("Domain.Entites.CapgeminiTournament", b =>
-                {
-                    b.Property<Guid>("tournamentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("capgeminiId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("tournamentId", "capgeminiId");
-
-                    b.HasIndex("capgeminiId");
-
-                    b.ToTable("CapgeminiTournaments");
                 });
 
             modelBuilder.Entity("Domain.Entites.Groupe", b =>
@@ -152,48 +155,21 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tournaments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("3103ad2f-e6d0-424e-b031-805461bf536e"),
-                            CountryOrganisation = "Maroc",
-                            DateCreated = new DateTime(2023, 2, 12, 14, 12, 28, 848, DateTimeKind.Local).AddTicks(5438),
-                            DateModified = new DateTime(2023, 2, 12, 14, 12, 28, 848, DateTimeKind.Local).AddTicks(5463),
-                            Name = "Tournoi Ramadan",
-                            isFinished = false,
-                            isSignUpCompleted = false,
-                            isStarted = false
-                        });
                 });
 
-            modelBuilder.Entity("Domain.Entites.CapgeminiTournament", b =>
+            modelBuilder.Entity("CapgeminiTournament", b =>
                 {
-                    b.HasOne("Domain.Entites.Capgemini", "capgemini")
-                        .WithMany("capgeminiTournament")
-                        .HasForeignKey("capgeminiId")
+                    b.HasOne("Domain.Entites.Capgemini", null)
+                        .WithMany()
+                        .HasForeignKey("CapgeminisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entites.Tournament", "tournament")
-                        .WithMany("capgeminiTournament")
-                        .HasForeignKey("tournamentId")
+                    b.HasOne("Domain.Entites.Tournament", null)
+                        .WithMany()
+                        .HasForeignKey("TournamentsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("capgemini");
-
-                    b.Navigation("tournament");
-                });
-
-            modelBuilder.Entity("Domain.Entites.Capgemini", b =>
-                {
-                    b.Navigation("capgeminiTournament");
-                });
-
-            modelBuilder.Entity("Domain.Entites.Tournament", b =>
-                {
-                    b.Navigation("capgeminiTournament");
                 });
 #pragma warning restore 612, 618
         }

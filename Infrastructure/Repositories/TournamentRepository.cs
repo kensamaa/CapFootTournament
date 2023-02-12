@@ -22,7 +22,7 @@ namespace Infrastructure.Repositories
 
             foreach(Capgemini cap in pCapgeminiList)
             {
-                lCapgeminiList.Capgeminis.Add(cap);
+                //lCapgeminiList.Capgeminis.Add(cap);
             }
             this._context.SaveChanges();
             return  Task.CompletedTask;
