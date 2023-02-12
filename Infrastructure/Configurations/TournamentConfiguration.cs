@@ -14,33 +14,18 @@ namespace Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Tournament> builder)
         {
+            var id = Guid.NewGuid();
             builder.HasData(
             new Tournament
             {
-                Id = Guid.NewGuid(),
+                Id = id,
                 Name = "Tournoi Ramadan",
                 CountryOrganisation = "Maroc",
                 isFinished = false,
                 isStarted = false,
                 isSignUpCompleted = false,
-                //Capgeminis = new List<Capgemini>
-                //{
-                //    new Capgemini
-                //    {
-
-                //        Id = Guid.Parse("50630809-0da5-43c7-b8e1-08135a031773"),
-
-                //    },
-                //     new Capgemini
-                //     {
-                //         Id = Guid.Parse("2307aad8-f07b-497a-a02b-db23bc0c6ee0"),
-                //     },
-
-                //},
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now
-
-
             }
            );
             // builder.Property(q => q.Id).IsRequired();

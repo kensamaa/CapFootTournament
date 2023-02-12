@@ -29,6 +29,11 @@ namespace Infrastructure.Repositories
 
         }
 
+        public async Task<List<Tournament>> GetAllTournaments()
+        {
+            return await _context.Set<Tournament>().Include(t=>t.capgeminiTournament).AsNoTracking().ToListAsync();
+        }
+
         public Task<List<Groupe>> getListGroupes(Guid tournamentId)
         {
             throw new NotImplementedException();

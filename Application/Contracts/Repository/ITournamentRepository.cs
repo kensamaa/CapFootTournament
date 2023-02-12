@@ -10,6 +10,7 @@ namespace Application.Contracts.Repository
     public interface ITournamentRepository : IGenericRepository<Tournament>
     {
         Task<bool> IsTournamentUnique(string name);
+        Task<List<Tournament>> GetAllTournaments();
         Task<bool> isTournamentInscriptionsFinished(Guid id);
         Task<List<Groupe>> runDrawStage(List<Team> teams);
         Task<List<Groupe>> getListGroupes(Guid tournamentId);

@@ -1,6 +1,7 @@
 ﻿using Application.Contracts.Repository;
 using Application.Features.Capgemini.Queries.GetAllCapgemini;
 using AutoMapper;
+using Domain.Entites;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,16 @@ namespace Application.Features.Tournament.Queries.GetAllTournaments
         async Task<List<TournamentDto>> IRequestHandler<GetTournamentQuery, List<TournamentDto>>.Handle(GetTournamentQuery request, CancellationToken cancellationToken)
         {
             //query database
-            var Tournaments = await _tournamentRepository.GetAsync();
-
+            var Tournaments = await _tournamentRepository.GetAllTournaments();
+            CapgeminiDto capgeminiItem;
             //convert data object to dto object
             var data = _mapper.Map<List<TournamentDto>>(Tournaments);
+            foreach(var tournament in data)
+            {
+                capgeminiItem = new CapgeminiDto();
 
+                tournament.ListCapgeminis.Add(Tournaments.Where(t=>t.Id == tournament.Id).Select(t=>t.capgeminiTournament.Where(ct=>ct.tournamentId == t.Id).Select(ct=>ct.capgemini).FirstOrDefault<Capgemini>())
+            }
             //return dto object
             return data;
         }
