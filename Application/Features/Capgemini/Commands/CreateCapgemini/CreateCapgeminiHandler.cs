@@ -18,16 +18,24 @@ public class CreateCapgeminiHandler : IRequestHandler<CreateCapgeminiCommand, Gu
     public async Task<Guid> Handle(CreateCapgeminiCommand request, CancellationToken cancellationToken)
     {
         //validate incoming data
-        var validator =new CreateCapgeminiValidator();
+        var validator = new CreateCapgeminiValidator();
         var validationResult = await validator.ValidateAsync(request);
         if (!validationResult.IsValid)
-            throw new CapgeminiException("invalid capgemini",validationResult);
+            throw new CapgeminiException("invalid capgemini", validationResult);
 
         //convert to domain entity object
-        var CapgeminiToCreate = _mapper.Map<Domain.Entites.Capgemini>(request);
+        Domain.Entites.Capgemini cap = new Domain.Entites.Capgemini()
+        {
+            Name = request.Name,
+            Country = request.Country,
+            City = request.City,
+            NumberOfTeams = request.NumberOfTeams,
+            DateCreation = request.DateCreation
+        };
+		var CapgeminiToCreate = _mapper.Map<Domain.Entites.Capgemini>(cap);
         //add to database
         await _capgeminiRepository.CreateAsync(CapgeminiToCreate);
         //return record id
-        return CapgeminiToCreate.Id;
+        return cap.Id;
     }
 }

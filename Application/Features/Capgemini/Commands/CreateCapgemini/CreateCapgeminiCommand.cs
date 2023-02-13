@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Application.Features.Capgemini.Queries.GetAllCapgemini;
+using Domain.Entites;
+using MediatR;
 
 namespace Application.Features.Capgemini.Commands.CreateCapgemini
 {
@@ -9,5 +11,5 @@ namespace Application.Features.Capgemini.Commands.CreateCapgemini
         public string City { get; set; } = string.Empty;
 		public int NumberOfTeams { get; set; }
 		public DateTime DateCreation { get; set; }
-    }
+	}
 }

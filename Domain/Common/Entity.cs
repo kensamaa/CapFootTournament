@@ -3,7 +3,7 @@ namespace Domain.Common;
 
 public abstract class Entity : IEquatable<Entity>
 {
-	public Guid Id { get; set; }
+	public Guid Id { get; set; }=Guid.NewGuid();
     public DateTime? DateCreated { get; set; }
 	public DateTime? DateModified { get; set; }
     public override bool Equals(object? obj)

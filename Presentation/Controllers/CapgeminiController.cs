@@ -1,4 +1,5 @@
-﻿using Application.Features.Capgemini.Queries.GetAllCapgemini;
+﻿using Application.Features.Capgemini.Commands.CreateCapgemini;
+using Application.Features.Capgemini.Queries.GetAllCapgemini;
 using Application.Features.Capgemini.Queries.GetCapgeminiDetails;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -27,4 +28,12 @@ public sealed class CapgeminiController : ControllerBase
         var capgemini = await _mediator.Send(new CapgeminiDetailsQuery(Id));
         return Ok(capgemini);
     }
+    [HttpPost]
+    [ProducesResponseType(201)]
+	[ProducesResponseType(400)]
+	public async Task<ActionResult> AddCapgemini(CreateCapgeminiCommand capgemini)
+	{
+		var response = await _mediator.Send(capgemini);
+        return CreatedAtAction(nameof(AddCapgemini), new { id = response });
+	}
 }
