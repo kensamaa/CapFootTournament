@@ -1,11 +1,15 @@
-﻿using System;
-using Domain.Common;
+﻿using Domain.Common;
 
 namespace Domain.Entites;
 
-public sealed class Groupe:Entity
+public class Groupe : Entity
 {
-    public Guid TournamentId { get; set; }
-    public string Name { get; set; } = string.Empty;
+	public Groupe()
+	{
+		ListeTeams = new List<Team>();
+	}
+	public Guid TournamentId { get; set; }
+	public string Name { get; set; } = string.Empty;
+	public virtual List<Team> ListeTeams { get; set; }
 }
 
