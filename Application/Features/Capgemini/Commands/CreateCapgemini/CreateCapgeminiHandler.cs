@@ -24,18 +24,18 @@ public class CreateCapgeminiHandler : IRequestHandler<CreateCapgeminiCommand, Gu
             throw new CapgeminiException("invalid capgemini", validationResult);
 
         //convert to domain entity object
-        Domain.Entites.Capgemini cap = new Domain.Entites.Capgemini()
-        {
-            Name = request.Name,
-            Country = request.Country,
-            City = request.City,
-            NumberOfTeams = request.NumberOfTeams,
-            DateCreation = request.DateCreation
-        };
-		var CapgeminiToCreate = _mapper.Map<Domain.Entites.Capgemini>(cap);
+        //Domain.Entites.Capgemini cap = new Domain.Entites.Capgemini()
+        //{
+        //    Name = request.Name,
+        //    Country = request.Country,
+        //    City = request.City,
+        //    NumberOfTeams = request.NumberOfTeams,
+        //    DateCreation = request.DateCreation
+        //};
+		var CapgeminiToCreate = _mapper.Map<Domain.Entites.Capgemini>(request);
         //add to database
         await _capgeminiRepository.CreateAsync(CapgeminiToCreate);
         //return record id
-        return cap.Id;
+        return CapgeminiToCreate.Id;
     }
 }

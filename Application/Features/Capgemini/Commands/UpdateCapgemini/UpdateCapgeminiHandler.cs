@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Features.Capgemini.Commands.UpdateCapgemini;
 
-public class UpdateCapgeminiHandler : IRequestHandler<UpdateTournamentCommand, Unit>
+public class UpdateCapgeminiHandler : IRequestHandler<UpdateCapgeminiCommand, Unit>
 {
     private readonly IMapper _mapper;
     private readonly ICapgeminiRepository _capgeminiRepository;
@@ -14,12 +14,20 @@ public class UpdateCapgeminiHandler : IRequestHandler<UpdateTournamentCommand, U
         _capgeminiRepository = capgeminiRepository;
     }
 
-    public async Task<Unit> Handle(UpdateTournamentCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(UpdateCapgeminiCommand request, CancellationToken cancellationToken)
     {
-        //validate incoming data
+		//validate incoming data
 
-        //convert to domain entity object
-        var CapgeminiToUpdate = _mapper.Map<Domain.Entites.Capgemini>(request);
+		//convert to domain entity object
+		//Domain.Entites.Capgemini cap = new Domain.Entites.Capgemini()
+		//{
+		//	Name = request.Name,
+		//	Country = request.Country,
+		//	City = request.City,
+		//	NumberOfTeams = request.NumberOfTeams,
+		//	DateCreation = request.DateCreation
+		//};
+		var CapgeminiToUpdate = _mapper.Map<Domain.Entites.Capgemini>(request);
         //update  database
         await _capgeminiRepository.UpdateAsync(CapgeminiToUpdate);
         //return record id

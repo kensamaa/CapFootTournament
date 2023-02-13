@@ -9,5 +9,6 @@ public class CreateCapgeminiValidator : AbstractValidator<CreateCapgeminiCommand
 	{
 		RuleFor(p => p.Name)
 			.NotEmpty().WithMessage("{PropertyName} is required").NotNull();
+		
 	}
 }
