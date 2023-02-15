@@ -13,7 +13,7 @@ public class CapgeminiProfile :Profile
 		CreateMap<CapgeminiDto, Capgemini>().ReverseMap();
         CreateMap<Capgemini, CapgeminiDetailsDto>();
 		CreateMap<CreateCapgeminiCommand, Capgemini>();
-		CreateMap<UpdateCapgeminiCommand, Capgemini>();
+		CreateMap<UpdateGroupCommand, Capgemini>();
 	}
 }
 

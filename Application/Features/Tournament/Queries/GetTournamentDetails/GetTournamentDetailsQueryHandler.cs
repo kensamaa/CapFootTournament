@@ -5,6 +5,8 @@ using MediatR;
 
 using Application.Features.Tournament.Queries.GetTournamentDetails;
 using Application.Features.Capgemini.Queries.GetAllCapgemini;
+using Application.Features.Group.Queries.GetAllGroups;
+
 namespace Application.Features.Tournament.Queries.GetTournamentDetails;
 public class GetTournamentDetailsQueryHandler : IRequestHandler<GetTournamentDetailsQuery, TournamentDetailsDto>
 {
@@ -25,10 +27,13 @@ public class GetTournamentDetailsQueryHandler : IRequestHandler<GetTournamentDet
 
         //extract Capgemini List Of Each tournament
         var capgeminiList = await _tournamentCapgeminiRepository.GetAllCapgeminisInTournaments(Tournament.Id);
-        var capgeminisDTO = _mapper.Map<List<CapgeminiDto>>(capgeminiList);
+        var groupsList = await _tournamentRepository.getListGroupes(Tournament.Id);
 
+		var capgeminisDTO = _mapper.Map<List<CapgeminiDto>>(capgeminiList);
+        var groupDto= _mapper.Map<List<GroupDto>>(groupsList);
         var data = _mapper.Map<TournamentDetailsDto>(Tournament);
         data.ListCapgeminis.AddRange(capgeminisDTO);
+        data.ListeGroupes.AddRange(groupDto);
 
         //return dto object
         return data;

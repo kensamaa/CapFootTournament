@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Features.Capgemini.Queries.GetCapgeminiDetails;
 
-public class CapgeminiDetailsQueryHandler : IRequestHandler<CapgeminiDetailsQuery, CapgeminiDetailsDto>
+public class CapgeminiDetailsQueryHandler : IRequestHandler<GroupesDetailQuery, CapgeminiDetailsDto>
 {
     private readonly ICapgeminiRepository _capgeminiRepository;
     private readonly IMapper _mapper;
@@ -14,7 +14,7 @@ public class CapgeminiDetailsQueryHandler : IRequestHandler<CapgeminiDetailsQuer
         _mapper = mapper;
     }
 
-    public async Task<CapgeminiDetailsDto> Handle(CapgeminiDetailsQuery request, CancellationToken cancellationToken)
+    public async Task<CapgeminiDetailsDto> Handle(GroupesDetailQuery request, CancellationToken cancellationToken)
     {
         //query database
         var Capgemini = await _capgeminiRepository.GetByIdAsync(request.Id);

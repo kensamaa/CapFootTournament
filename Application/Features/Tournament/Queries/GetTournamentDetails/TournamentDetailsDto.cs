@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Features.Capgemini.Queries.GetAllCapgemini;
+using Application.Features.Group.Queries.GetAllGroups;
+using Domain.Entites;
 
 namespace Application.Features.Tournament.Queries.GetTournamentDetails
 {
@@ -17,5 +19,6 @@ namespace Application.Features.Tournament.Queries.GetTournamentDetails
         public Boolean isFinished { get; set; }
         public String CountryOrganisation { get; set; } = string.Empty;
         public List<CapgeminiDto> ListCapgeminis { get; set; } = new List<CapgeminiDto> { };
-    }
+		public  List<GroupDto> ListeGroupes { get; set; }= new List<GroupDto> { };
+	}
 }

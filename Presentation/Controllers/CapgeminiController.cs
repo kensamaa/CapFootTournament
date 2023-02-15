@@ -28,7 +28,7 @@ public sealed class CapgeminiController : ControllerBase
     [HttpGet("{Id}")]
 	public async Task<ActionResult<CapgeminiDto>> GetCapgemini(Guid Id)
     {
-        var capgemini = await _mediator.Send(new CapgeminiDetailsQuery(Id));
+        var capgemini = await _mediator.Send(new GroupesDetailQuery(Id));
         return Ok(capgemini);
     }
 
@@ -46,7 +46,7 @@ public sealed class CapgeminiController : ControllerBase
 	[ProducesResponseType(400)]
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	[ProducesDefaultResponseType]
-	public async Task<ActionResult> UpdateCapgemini(UpdateCapgeminiCommand capgemini)
+	public async Task<ActionResult> UpdateCapgemini(UpdateGroupCommand capgemini)
 	{
 		await _mediator.Send(capgemini);
         return NoContent();
