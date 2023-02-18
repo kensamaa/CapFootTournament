@@ -1,20 +1,10 @@
-﻿using Application.Features.Capgemini.Commands.CreateCapgemini;
-using Application.Features.Capgemini.Commands.DeleteCapgemini;
-using Application.Features.Capgemini.Queries.GetAllCapgemini;
-using Application.Features.Capgemini.Queries.GetCapgeminiDetails;
-using Application.Features.Group.Commands.CreateGroup;
+﻿using Application.Features.Group.Commands.CreateGroup;
 using Application.Features.Group.Commands.DeleteGroup;
 using Application.Features.Group.Queries.GetAllGroups;
 using Application.Features.Group.Queries.GetGroupDetail;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Presentation.Controllers;
 [Route("api/[controller]")]
 [ApiController]
@@ -34,7 +24,7 @@ public sealed class GroupesController : ControllerBase
 	[HttpGet("{Id}")]
 	public async Task<ActionResult<GroupDetailsDto>> GetGroupe(Guid Id)
 	{
-		var group = await _mediator.Send(new GroupesDetailQuery(Id));
+		var group = await _mediator.Send(new GroupDetailsQuery(Id));
 		return Ok(group);
 	}
 	[HttpPost]

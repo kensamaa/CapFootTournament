@@ -15,6 +15,5 @@ public class Team : Entity
 	public string City { get; set; } = string.Empty;
 	public Guid CapgeminiId { get; set; }
 	public virtual List<Player> Listplayers { get; set; }
-
 }
 
