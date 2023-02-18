@@ -1,4 +1,5 @@
-﻿using Domain.Entites;
+﻿using Application.Features.Player.Queries.GetPlayers;
+using Domain.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Application.Contracts.Repository
 {
 	public  interface ITeamRepository: IGenericRepository<Team>
 	{
+		Task<List<Player>> getListPlayers(Guid TeamId);
 	}
 }
