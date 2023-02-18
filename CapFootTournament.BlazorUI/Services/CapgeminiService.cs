@@ -9,6 +9,7 @@ namespace CapFootTournament.BlazorUI.Services
 	{
 		private readonly HttpClient _http;
 		public List<Capgemini> ListCapgemini { get; set; } = new List<Capgemini>();
+		public Capgemini CapgeminiDetails { get; set; } = new Capgemini();
 		public CapgeminiService(HttpClient httpClient)
 		{
 			_http = httpClient;
@@ -19,6 +20,13 @@ namespace CapFootTournament.BlazorUI.Services
 			if (res != null)
 				ListCapgemini = res;
 
+		}
+
+		public async Task GetCapgeminiByIdAsync(Guid id)
+		{
+			var res = await _http.GetFromJsonAsync<Capgemini>($"https://localhost:7147/api/Capgemini/{id}");
+			if (res != null)
+				CapgeminiDetails = res;
 		}
 	}
 }

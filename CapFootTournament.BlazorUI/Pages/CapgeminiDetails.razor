@@ -1,0 +1,83 @@
+﻿@page "/capgemini/{id}"
+@using CapFootTournament.BlazorUI.Contracts;
+@using CapFootTournament.BlazorUI.Services;
+@using CapFootTournament.BlazorUI.Models;
+@inject ICapgeminiContract CapgeminiService
+<PageTitle>Capgeminis Details</PageTitle>
+<style>
+    body{
+        background-image : Url("https://imgs.search.brave.com/Uht7SAhwdipGMI3G3m0qzbvXPV6UeQI8BoXOduMZTds/rs:fit:1200:918:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDI3MzYw/NDIuanBn");
+        background-size : cover;
+    }
+</style>
+
+<div class="container">
+    <h3 class="mb-4">Capgemini Detail</h3>
+	<div class="row">
+        <div class="col-md-5">
+            <MatCard class="demo-mat-card ">
+                <MatCardContent>
+                    <MatCardMedia Wide="true" ImageUrl="https://imgs.search.brave.com/jocSwCt-Y6CQyN_1w4fXIfgpGJJ6ZDPLU11-gz3mVtY/rs:fit:992:558:1/g:ce/aHR0cHM6Ly9va2Rp/YXJpby5jb20vaW1n/LzIwMTcvMDQvMjcv/Y2FwZ2VtaW5pMS1l/MTUyNTM1MjEyMTU4/OC5qcGc"></MatCardMedia>
+                    <div class="demo-mat-card-content">
+                        <MatHeadline6 class="demo-mat-card-clean-margin text-center">
+                            Capgemini @capgemini.Name @capgemini.City
+                        </MatHeadline6>
+                        <MatSubtitle2 class="demo-mat-card-clean-margin text-center">
+                            Country : @capgemini.Country
+                        </MatSubtitle2>
+                    </div>
+
+                    <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
+
+                    </MatBody2>
+                </MatCardContent>
+                <MatCardActions>
+                    <MatCardActionButtons>
+                        <MatButton>View More</MatButton>
+                        <MatButton>View Tournaments</MatButton>
+                    </MatCardActionButtons>
+                    <MatCardActionIcons>
+                        <MatIconButton Icon="@MatIconNames.Favorite"></MatIconButton>
+                        <MatIconButton Icon="@MatIconNames.Pencil"></MatIconButton>
+                    </MatCardActionIcons>
+                </MatCardActions>
+            </MatCard>
+        </div>
+        
+        <div class="col-md-5">
+            <MatCard class="demo-mat-card ">
+                <MatCardContent>
+                    <div class="demo-mat-card-content">
+                        <MatHeadline6 class="demo-mat-card-clean-margin text-center">
+                            Capgemini @capgemini.Name @capgemini.City
+                        </MatHeadline6>
+                        <MatSubtitle2 class="demo-mat-card-clean-margin text-center">
+                            Country : @capgemini.Country
+                        </MatSubtitle2>
+                    </div>
+
+                    <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
+
+                    </MatBody2>
+                </MatCardContent>
+
+            </MatCard>
+        </div>
+        
+	</div>
+</div>
+
+<p></p>
+
+@code {
+	[Parameter]
+	public String Id { get; set; } = "";
+	public Guid CapgeminiId;
+	public Capgemini capgemini = new Capgemini();
+	protected override async Task OnInitializedAsync()
+	{
+		CapgeminiId = new Guid(Id);
+		await CapgeminiService.GetCapgeminiByIdAsync(CapgeminiId);
+		capgemini = CapgeminiService.CapgeminiDetails;
+	}
+}
