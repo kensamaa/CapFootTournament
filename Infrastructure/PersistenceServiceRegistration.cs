@@ -27,6 +27,7 @@ public static class PersistenceServiceRegistration
 		services.AddScoped<ICapgeminiTournament, CapgeminiTournamentRepository>();
 		services.AddScoped<IGroupRepository, GroupRepository>();
 		services.AddScoped<ITeamRepository, TeamRepository>();
+		services.AddScoped<IPlayerRepository, PlayerRepository>();
 		return services;
 
 	}

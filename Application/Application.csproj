@@ -22,6 +22,7 @@
   <ItemGroup>
     <Folder Include="Features\Capgemini\Queries\GetAllCapgemini\" />
     <Folder Include="Features\Group\Commands\UpdateGroup\" />
+    <Folder Include="Features\Player\Queries\GetPlayerDetails\" />
     <Folder Include="Features\Tournament\Commands\DeleteTournament\" />
   </ItemGroup>
   <ItemGroup>

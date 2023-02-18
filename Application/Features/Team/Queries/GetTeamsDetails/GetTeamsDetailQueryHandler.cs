@@ -11,19 +11,23 @@ namespace Application.Features.Team.Queries.GetTeams
 {
 	public class GetTeamsDetailQueryHandler : IRequestHandler<GetTeamsDetailQuery, TeamDetailDto>
 	{
-		public GetTeamsDetailQueryHandler(ITeamRepository teamRepositor ,IMapper mapper)
+		public readonly ITeamRepository TeamRepositor;
+		public readonly IMapper Mapper;
+		public readonly IPlayerRepository PlayerRepository;
+
+		public GetTeamsDetailQueryHandler(ITeamRepository teamRepositor ,IMapper mapper, IPlayerRepository playerRepository)
 		{
 			TeamRepositor = teamRepositor;
+			PlayerRepository = playerRepository;
 			Mapper = mapper;
 		}
 
-		public readonly ITeamRepository TeamRepositor;
-		public readonly IMapper Mapper;
 
 		public async Task<TeamDetailDto> Handle(GetTeamsDetailQuery request, CancellationToken cancellationToken)
 		{
 			//query database
 			var Team = await TeamRepositor.GetByIdAsync(request.Id);
+
 			var data =Mapper.Map<TeamDetailDto>(Team);
 			return data;
 		}
