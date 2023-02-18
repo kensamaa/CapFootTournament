@@ -14,15 +14,15 @@ public sealed class TeamController : ControllerBase
 		this._mediator = mediator;
 	}
 	[HttpGet]
-	public async Task<List<TeamDto>> GetCapgeminis()
+	public async Task<List<TeamDto>> GetTeams()
 	{
 		var teams = await _mediator.Send(new GetTeamsQuery());
 		return teams;
 	}
-	//[HttpGet("{Id}")]
-	//public async Task<ActionResult<CapgeminiDto>> GetCapgemini(Guid Id)
-	//{
-	//	var capgemini = await _mediator.Send(new CapgeminiDetailQuery(Id));
-	//	return Ok(capgemini);
-	//}
+	[HttpGet("{Id}")]
+	public async Task<ActionResult<TeamDetailDto>> GetTeam(Guid Id)
+	{
+		var capgemini = await _mediator.Send(new GetTeamsDetailQuery(Id));
+		return Ok(capgemini);
+	}
 }
