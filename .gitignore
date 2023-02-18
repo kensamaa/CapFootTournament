@@ -9,8 +9,8 @@ install-sh
 autom4te.cache/
 *.tar.gz
 tarballs/
+Infrastructure/Migrations/
 test-results/
-
 # Mac bundle stuff
 *.dmg
 *.app

@@ -24,8 +24,8 @@ public static class PersistenceServiceRegistration
 
 		services.AddScoped<ICapgeminiRepository, CapgeminiRepository>();
         services.AddScoped<ITournamentRepository, TournamentRepository>();
-
-        services.AddScoped<IGroupRepository, GroupRepository>();
+		services.AddScoped<ICapgeminiTournament, CapgeminiTournamentRepository>();
+		services.AddScoped<IGroupRepository, GroupRepository>();
         return services;
 
 	}

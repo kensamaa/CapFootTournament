@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.Features.Capgemini.Commands.CreateCapgemini;
+using Application.Features.Capgemini.Commands.UpdateCapgemini;
 using Application.Features.Capgemini.Queries.GetAllCapgemini;
 using Application.Features.Capgemini.Queries.GetCapgeminiDetails;
 using AutoMapper;
@@ -11,6 +12,8 @@ public class CapgeminiProfile :Profile
 	{
 		CreateMap<CapgeminiDto, Capgemini>().ReverseMap();
         CreateMap<Capgemini, CapgeminiDetailsDto>();
-    }
+		CreateMap<CreateCapgeminiCommand, Capgemini>();
+		CreateMap<UpdateGroupCommand, Capgemini>();
+	}
 }
 

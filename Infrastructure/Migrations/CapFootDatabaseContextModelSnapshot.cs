@@ -49,6 +49,9 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("NumberOfTeams")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Capgeminis");
@@ -56,14 +59,199 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3a740281-a65c-44b9-a78c-f5e2be272cff"),
+                            Id = new Guid("a00015f8-405f-4794-a8fa-a911f2f9e09e"),
                             City = "Casablanca",
                             Country = "Morocco",
-                            DateCreated = new DateTime(2023, 2, 3, 2, 36, 23, 808, DateTimeKind.Local).AddTicks(6180),
+                            DateCreated = new DateTime(2023, 2, 15, 0, 33, 34, 121, DateTimeKind.Local).AddTicks(7159),
                             DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2023, 2, 3, 2, 36, 23, 808, DateTimeKind.Local).AddTicks(6266),
-                            Name = "TS"
+                            DateModified = new DateTime(2023, 2, 15, 0, 33, 34, 121, DateTimeKind.Local).AddTicks(7207),
+                            Name = "TS",
+                            NumberOfTeams = 16
+                        },
+                        new
+                        {
+                            Id = new Guid("f8648bb2-26f9-418b-962e-afb8492d482c"),
+                            City = "Rabat",
+                            Country = "Morocco",
+                            DateCreated = new DateTime(2023, 2, 15, 0, 33, 34, 121, DateTimeKind.Local).AddTicks(7213),
+                            DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2023, 2, 15, 0, 33, 34, 121, DateTimeKind.Local).AddTicks(7215),
+                            Name = "TS",
+                            NumberOfTeams = 8
                         });
+                });
+
+            modelBuilder.Entity("Domain.Entites.CapgeminiTournament", b =>
+                {
+                    b.Property<Guid>("tournamentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("capgeminiId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("tournamentId", "capgeminiId");
+
+                    b.HasIndex("capgeminiId");
+
+                    b.ToTable("CapgeminiTournaments");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Card", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Color")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ReceptionDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("Card");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Goal", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("GoalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Goalminute")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("MatchId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("Goal");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Groupe", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("TournamentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TournamentId");
+
+                    b.ToTable("Groups");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Player", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FamilyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("Player");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CapgeminiId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Classement")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("GroupeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupeId");
+
+                    b.ToTable("Team");
                 });
 
             modelBuilder.Entity("Domain.Entites.Tournament", b =>
@@ -86,9 +274,122 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("isFinished")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isSignUpCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isStarted")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Tournaments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("e5f04655-8226-411e-a55b-7330bdd964a5"),
+                            CountryOrganisation = "Maroc",
+                            Name = "Tournoi Ramadan",
+                            isFinished = false,
+                            isSignUpCompleted = false,
+                            isStarted = false
+                        });
+                });
+
+            modelBuilder.Entity("Domain.Entites.CapgeminiTournament", b =>
+                {
+                    b.HasOne("Domain.Entites.Capgemini", "capgemini")
+                        .WithMany("capgeminiTournament")
+                        .HasForeignKey("capgeminiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entites.Tournament", "tournament")
+                        .WithMany("capgeminiTournament")
+                        .HasForeignKey("tournamentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("capgemini");
+
+                    b.Navigation("tournament");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Card", b =>
+                {
+                    b.HasOne("Domain.Entites.Player", null)
+                        .WithMany("ListCards")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entites.Goal", b =>
+                {
+                    b.HasOne("Domain.Entites.Player", null)
+                        .WithMany("ListGoals")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entites.Groupe", b =>
+                {
+                    b.HasOne("Domain.Entites.Tournament", null)
+                        .WithMany("ListeGroupes")
+                        .HasForeignKey("TournamentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entites.Player", b =>
+                {
+                    b.HasOne("Domain.Entites.Team", null)
+                        .WithMany("Listplayers")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entites.Team", b =>
+                {
+                    b.HasOne("Domain.Entites.Groupe", null)
+                        .WithMany("ListeTeams")
+                        .HasForeignKey("GroupeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entites.Capgemini", b =>
+                {
+                    b.Navigation("capgeminiTournament");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Groupe", b =>
+                {
+                    b.Navigation("ListeTeams");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Player", b =>
+                {
+                    b.Navigation("ListCards");
+
+                    b.Navigation("ListGoals");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Team", b =>
+                {
+                    b.Navigation("Listplayers");
+                });
+
+            modelBuilder.Entity("Domain.Entites.Tournament", b =>
+                {
+                    b.Navigation("ListeGroupes");
+
+                    b.Navigation("capgeminiTournament");
                 });
 #pragma warning restore 612, 618
         }

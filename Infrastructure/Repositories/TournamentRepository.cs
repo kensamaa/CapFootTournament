@@ -15,9 +15,28 @@ namespace Infrastructure.Repositories
         public TournamentRepository(CapFootDatabaseContext context) :base(context) {
         }
 
-        public Task<List<Groupe>> getListGroupes(Guid tournamentId)
+        public  Task assignCapgeminiListsToTournament(List<Capgemini> pCapgeminiList,Tournament pTournament)
         {
-            throw new NotImplementedException();
+            var lCapgeminiList = _context.Tournaments.Find(pTournament);
+            if (lCapgeminiList == null) return Task.CompletedTask;
+
+            foreach(Capgemini cap in pCapgeminiList)
+            {
+                //lCapgeminiList.Capgeminis.Add(cap);
+            }
+            this._context.SaveChanges();
+            return  Task.CompletedTask;
+
+        }
+
+        public async Task<List<Tournament>> GetAllTournaments()
+        {
+            return await _context.Set<Tournament>().Include(t=>t.capgeminiTournament).AsNoTracking().ToListAsync();
+        }
+
+        public async Task<List<Groupe>> getListGroupes(Guid tournamentId)
+        {
+            return await _context.Groups.Where(g=>g.TournamentId== tournamentId).ToListAsync();
         }
 
         public Task<bool> isTournamentInscriptionsFinished(Guid id)

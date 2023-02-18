@@ -1,11 +1,11 @@
-﻿using System;
-using Domain.Common;
+﻿using Domain.Common;
 
 namespace Domain.Entites;
 
-public sealed class Card:Entity
+public class Card : Entity
 {
-    public CardType Color { get; set; }
-    public DateTime ReceptionDate { get; set; }
+	public CardType Color { get; set; }
+	public Guid PlayerId { get; set; }
+	public DateTime ReceptionDate { get; set; }
 }
 
