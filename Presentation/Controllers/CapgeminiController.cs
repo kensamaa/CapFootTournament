@@ -28,7 +28,7 @@ public sealed class CapgeminiController : ControllerBase
     [HttpGet("{Id}")]
 	public async Task<ActionResult<CapgeminiDto>> GetCapgemini(Guid Id)
     {
-        var capgemini = await _mediator.Send(new GroupesDetailQuery(Id));
+        var capgemini = await _mediator.Send(new CapgeminiDetailQuery(Id));
         return Ok(capgemini);
     }
 
