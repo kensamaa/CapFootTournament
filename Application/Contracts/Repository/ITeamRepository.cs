@@ -10,6 +10,6 @@ namespace Application.Contracts.Repository
 {
 	public  interface ITeamRepository: IGenericRepository<Team>
 	{
-		Task<List<Player>> getListPlayers(Guid TeamId);
+		//Task<List<Player>> getListPlayers(Guid TeamId);
 	}
 }

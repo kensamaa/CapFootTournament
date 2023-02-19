@@ -11,9 +11,9 @@ namespace Infrastructure.Repositories
 		{
 		}
 
-		public async Task<List<Player>> getListPlayers(Guid TeamId)
-		{
-			return await _context.Pla  //.Groups.Where(g => g.TournamentId == tournamentId).ToListAsync();
-		}
+		//public async Task<List<Player>> getListPlayers(Guid TeamId)
+		//{
+		//	//return await _context.Player  //.Groups.Where(g => g.TournamentId == tournamentId).ToListAsync();
+		//}
 	}
 }
