@@ -32,6 +32,7 @@ public class CapFootDatabaseContext : DbContext
             .HasForeignKey(sc => sc.tournamentId);
         //End configure many to many between Capgemini and Tournament
         base.OnModelCreating(modelBuilder);
+       
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
