@@ -1,4 +1,5 @@
 ﻿using Application.Contracts.Repository;
+using Application.Features.Team.Queries.GetTeams;
 using AutoMapper;
 using MediatR;
 
@@ -20,8 +21,13 @@ public class GroupDetailsQueryHandler : IRequestHandler<GroupDetailsQuery,GroupD
         //query database
         var Group = await _groupRepository.GetByIdAsync(request.Id);
 
+        var teamList = await _groupRepository.getListTeam(Group.Id);
+
+        var teamDto = _mapper.Map<List<TeamDto>>(teamList);
+
         //convert data object to dto object
         var data = _mapper.Map<GroupDetailsDto>(Group);
+        data.ListeTeams.AddRange(teamDto);
 
         //return dto object
         return data;
