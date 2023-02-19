@@ -9,7 +9,7 @@ public class CapFootDatabaseContext : DbContext
     public CapFootDatabaseContext(DbContextOptions<CapFootDatabaseContext> options
         ) : base(options)
     {
-
+        this.Database.EnsureCreated();
     }
     public DbSet<Capgemini> Capgeminis { get; set; }
     public DbSet<Tournament> Tournaments { get; set; }

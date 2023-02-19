@@ -55,30 +55,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Capgeminis");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("bfbd854d-7ae1-4a29-956d-b46cf12b7c4f"),
-                            City = "Casablanca",
-                            Country = "Morocco",
-                            DateCreated = new DateTime(2023, 2, 19, 1, 6, 20, 450, DateTimeKind.Local).AddTicks(9159),
-                            DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2023, 2, 19, 1, 6, 20, 450, DateTimeKind.Local).AddTicks(9236),
-                            Name = "TS",
-                            NumberOfTeams = 16
-                        },
-                        new
-                        {
-                            Id = new Guid("3e72b12f-6cb6-4347-9cd7-f28a085ffdd5"),
-                            City = "Rabat",
-                            Country = "Morocco",
-                            DateCreated = new DateTime(2023, 2, 19, 1, 6, 20, 450, DateTimeKind.Local).AddTicks(9264),
-                            DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2023, 2, 19, 1, 6, 20, 450, DateTimeKind.Local).AddTicks(9267),
-                            Name = "TS",
-                            NumberOfTeams = 8
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entites.CapgeminiTournament", b =>
@@ -286,17 +262,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tournaments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("008b2147-9398-47da-af17-b6a938f7e653"),
-                            CountryOrganisation = "Maroc",
-                            Name = "Tournoi Ramadan",
-                            isFinished = false,
-                            isSignUpCompleted = false,
-                            isStarted = false
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entites.CapgeminiTournament", b =>
