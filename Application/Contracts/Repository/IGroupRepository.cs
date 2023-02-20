@@ -12,5 +12,6 @@ namespace Application.Contracts.Repository
         //Task<List<Groupe>> GetAll();
         //Task<List<Groupe>> FindAll();
         Task<bool> IsGroupUnique(string name);
+        Task<List<Team>> getListTeam(Guid groudId);
     }
 }

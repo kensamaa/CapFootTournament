@@ -13,6 +13,10 @@ namespace Infrastructure.Repositories
         {
             return await _context.Groups.AnyAsync(q => q.Name == name);
         }
+        public async Task<List<Team>> getListTeam(Guid groupId)
+        {
+            return await _context.Teams.Where(g=>g.GroupeId== groupId).ToListAsync();
+        }
 
     }
 }
