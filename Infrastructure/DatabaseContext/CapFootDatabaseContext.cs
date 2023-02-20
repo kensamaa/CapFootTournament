@@ -9,12 +9,13 @@ public class CapFootDatabaseContext : DbContext
     public CapFootDatabaseContext(DbContextOptions<CapFootDatabaseContext> options
         ) : base(options)
     {
-
+        this.Database.EnsureCreated();
     }
     public DbSet<Capgemini> Capgeminis { get; set; }
     public DbSet<Tournament> Tournaments { get; set; }
     public DbSet<Groupe> Groups { get; set; }
-    public DbSet<CapgeminiTournament> CapgeminiTournaments { get; set; }
+	public DbSet<Groupe> players { get; set; }
+	public DbSet<CapgeminiTournament> CapgeminiTournaments { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CapFootDatabaseContext).Assembly);

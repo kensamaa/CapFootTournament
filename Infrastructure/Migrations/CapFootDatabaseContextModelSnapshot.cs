@@ -154,7 +154,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("TournamentId");
 
-                    b.ToTable("Groups");
+                    b.ToTable("Groupe");
                 });
 
             modelBuilder.Entity("Domain.Entites.Player", b =>

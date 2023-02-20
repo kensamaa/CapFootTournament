@@ -2,5 +2,5 @@
 
 namespace Application.Features.Capgemini.Queries.GetCapgeminiDetails;
 
-public record GroupesDetailQuery(Guid Id): IRequest<CapgeminiDetailsDto>;
+public record CapgeminiDetailQuery(Guid Id): IRequest<CapgeminiDetailsDto>;
 

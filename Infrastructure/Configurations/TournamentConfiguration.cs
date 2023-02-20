@@ -8,17 +8,17 @@ namespace Infrastructure.Configurations
 	{
 		public void Configure(EntityTypeBuilder<Tournament> builder)
 		{
-			var id = Guid.NewGuid();
+			//var id = Guid.NewGuid();
 			//builder.HasData(
-			////new Tournament
-			////{
-			////	Id = id,
-			////	Name = "Tournoi Ramadan",
-			////	CountryOrganisation = "Maroc",
-			////	isFinished = false,
-			////	isStarted = false,
-			////	isSignUpCompleted = false
-			////}
+			//new Tournament
+			//{
+			//	Id = id,
+			//	Name = "Tournoi Ramadan",
+			//	CountryOrganisation = "Maroc",
+			//	isFinished = false,
+			//	isStarted = false,
+			//	isSignUpCompleted = false
+			//}
 		 //  );
 		}
 	}

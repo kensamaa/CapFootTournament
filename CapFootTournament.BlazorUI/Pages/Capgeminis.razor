@@ -5,7 +5,7 @@
 <PageTitle>Capgeminis</PageTitle>
 
 <h3>Capgeminis</h3>
-
+<MatButton>Test</MatButton>
 <table class="table table-border table-hover">
 	<thead>
 		<tr>
@@ -20,8 +20,11 @@
 		@foreach (var capgemini in CapgeminiService.ListCapgemini)
 		{
 			<tr>
-				<th>@capgemini.Id</th>
-				<th>@capgemini.Name</th>
+				<th>
+							<NavLink href="@($"/capgemini/{capgemini.Id}")">@capgemini.Id</NavLink>
+					
+				</th>
+					<th>@capgemini.Name</th>
 				<th>@capgemini.Country</th>
 				<th>@capgemini.City</th>
 				<th>@capgemini.DateCreation.ToString()</th>
@@ -30,6 +33,7 @@
 	</tbody>
 </table>
 @code {
+	
 	protected override async Task OnInitializedAsync()
 	{
 		await CapgeminiService.GetAllCapgeminisAsync();
