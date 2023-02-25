@@ -16,15 +16,14 @@ namespace CapFootTournament.BlazorUI.Services
 		}
 		public async Task GetAllCapgeminisAsync()
 		{
-			var res = await _http.GetFromJsonAsync<List<Capgemini>>("https://localhost:7147/api/Capgemini");
+			var res = await _http.GetFromJsonAsync<List<Capgemini>>($"{Constant.API}/Capgemini");
 			if (res != null)
 				ListCapgemini = res;
-
 		}
 
 		public async Task GetCapgeminiByIdAsync(Guid id)
 		{
-			var res = await _http.GetFromJsonAsync<Capgemini>($"https://localhost:7147/api/Capgemini/{id}");
+			var res = await _http.GetFromJsonAsync<Capgemini>($"{Constant.API}/Capgemini/{id}");
 			if (res != null)
 				CapgeminiDetails = res;
 		}
