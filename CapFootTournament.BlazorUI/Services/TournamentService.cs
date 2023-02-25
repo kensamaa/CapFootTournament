@@ -10,7 +10,7 @@ namespace CapFootTournament.BlazorUI.Services
 	{
 		private readonly HttpClient httpClient;
 
-		public List<Tournament> ListTournament { get; set; } = new List<Tournament> { };
+		public List<Tournament> ListTournament { get; set; } = new List<Tournament> {};
 		public Tournament TournamentDetails { get; set; } = new Tournament();
 
 		public TournamentService(HttpClient httpClient)
