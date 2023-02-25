@@ -22,7 +22,7 @@ namespace CapFootTournament.BlazorUI.Services
 
 		}
 
-		public async Task GetCapgeminiByIdAsync(Guid id)
+		public async Task GetCapgeminiByIdAsync(String id)
 		{
 			var res = await _http.GetFromJsonAsync<Capgemini>($"https://localhost:7147/api/Capgemini/{id}");
 			if (res != null)

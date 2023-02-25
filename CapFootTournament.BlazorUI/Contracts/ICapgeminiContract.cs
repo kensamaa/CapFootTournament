@@ -7,6 +7,6 @@ namespace CapFootTournament.BlazorUI.Contracts
 		public List<Capgemini> ListCapgemini { get; set; }
 		public Capgemini CapgeminiDetails { get; set; }
 		public Task GetAllCapgeminisAsync();
-		public Task GetCapgeminiByIdAsync(Guid id);
+		public Task GetCapgeminiByIdAsync(String id);
 	}
 }

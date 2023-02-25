@@ -2,11 +2,16 @@
 @using CapFootTournament.BlazorUI.Contracts;
 @using CapFootTournament.BlazorUI.Services;
 @inject ICapgeminiContract CapgeminiService
+@inject NavigationManager UriHelper
 <PageTitle>Capgeminis</PageTitle>
-
+<style>
+	tr:hover{
+		cursor: pointer;
+	}
+</style>
 <h3>Capgeminis</h3>
-<MatButton>Test</MatButton>
-<table class="table table-border table-hover">
+
+<table class="table table-border table-hover mt-3">
 	<thead>
 		<tr>
 			<th>id</th>
@@ -14,28 +19,51 @@
 			<th>Country</th>
 			<th>City</th>
 			<th>DateCreation</th>
+			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var capgemini in CapgeminiService.ListCapgemini)
-		{
+		@if(isLoading){
 			<tr>
-				<th>
-							<NavLink href="@($"/capgemini/{capgemini.Id}")">@capgemini.Id</NavLink>
-					
-				</th>
-					<th>@capgemini.Name</th>
-				<th>@capgemini.Country</th>
-				<th>@capgemini.City</th>
-				<th>@capgemini.DateCreation.ToString()</th>
+				<td colspan="6">
+					<MatProgressBar Indeterminate="true"></MatProgressBar>
+				</td>
+				
 			</tr>
+			
 		}
+		else{
+			@foreach (var capgemini in CapgeminiService.ListCapgemini)
+			{
+				<tr @onclick="() => NavigateToCapgemini(capgemini.Id)">
+					<th>@capgemini.Id</th>
+					<th>@capgemini.Name</th>
+					<th>@capgemini.Country</th>
+					<th>@capgemini.City</th>
+					<th>@capgemini.DateCreation.ToString()</th>
+					<th>
+						<MatButton color="secondary" Raised="true" Icon="edit">edit</MatButton>
+						<MatButton Raised="true" Icon="delete">delete</MatButton>
+					</th>
+				</tr>
+			}
+		}
+		
 	</tbody>
 </table>
 @code {
-	
+	public bool isLoading = false;
 	protected override async Task OnInitializedAsync()
 	{
+		isLoading = true;
+		await Task.Delay(2000);
+		isLoading = false;
 		await CapgeminiService.GetAllCapgeminisAsync();
 	}
+	public void NavigateToCapgemini(String pId)
+	{
+		UriHelper.NavigateTo("/capgemini/"+pId);
+	}
+
+
 }
