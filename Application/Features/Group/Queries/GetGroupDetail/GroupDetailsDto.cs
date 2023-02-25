@@ -1,4 +1,7 @@
-﻿namespace Application.Features.Group.Queries.GetGroupDetail
+﻿using Application.Features.Group.Queries.GetAllGroups;
+using Application.Features.Team.Queries.GetTeams;
+
+namespace Application.Features.Group.Queries.GetGroupDetail
 {
     public class GroupDetailsDto
     {
@@ -7,5 +10,6 @@
         public DateTime? DateModified { get; set; }
         public Guid TournamentId { get; set; }
         public string Name { get; set; } = string.Empty;
+        public List<TeamDto> ListeTeams { get; set; } = new List<TeamDto> { };
     }
 }

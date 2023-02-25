@@ -1,8 +1,46 @@
 ﻿@page "/Tournaments"
+@using CapFootTournament.BlazorUI.Contracts;
+@using CapFootTournament.BlazorUI.Services;
+@inject ITournamentContract TournamentService
+
 <PageTitle>Tournaments</PageTitle>
 
+
 <h3>Tournaments</h3>
-
+<table class="table table-border table-hover">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Name</th>
+			<th>CountryOrganisation</th>
+			<th>isFinished</th>
+			<th>isSignUpCompleted</th>
+			<th>isStarted</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var tournament in TournamentService.ListTournament)
+		{
+			<tr>
+				<th>
+					@tournament.Id
+				</th>
+				<th>@tournament.Name</th>
+				<th>@tournament.CountryOrganisation</th>
+				<th>@returnValue(@tournament.isFinished)</th>
+				<th>@returnValue(@tournament.isSignUpCompleted)</th>
+				<th>@returnValue(@tournament.isStarted)</th>
+			</tr>
+		}
+	</tbody>
+</table>
 @code {
-
+	private string returnValue(bool value)
+	{
+		return value ? "Yes" : "No";
+	}
+	protected override async Task OnInitializedAsync()
+	{
+		await TournamentService.GetAllTournamentsAsync();
+	}
 }
