@@ -20,7 +20,7 @@
 	<tbody>
 		@foreach (var team in TeamService.ListTeam)
 		{
-			<tr @onclick="() => NavigateToTeam(team.Id)">
+			<tr @onclick="() => NavigateToTeam(team.Id.ToString())">
 				<th>
 					@team.Id
 				</th>
