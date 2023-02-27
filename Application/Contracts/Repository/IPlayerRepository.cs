@@ -1,8 +1,8 @@
 ﻿using Domain.Entites;
 
-namespace Application.Contracts.Repository
+namespace Application.Contracts.Repository;
+
+public interface IPlayerRepository : IGenericRepository<Player>
 {
-	public interface IPlayerRepository : IGenericRepository<Player>
-	{
-	}
+	Task<List<Goal>> getListGoals(Guid id);
 }

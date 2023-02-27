@@ -1,20 +1,15 @@
-﻿using Application.Features.Player.Queries.GetPlayers;
+﻿using Application.Features.Player.Queries.GetPlayerDetails;
+using Application.Features.Player.Queries.GetPlayers;
 using AutoMapper;
 using Domain.Entites;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.MappingProfiles
+namespace Application.MappingProfiles;
+
+public class PlayerProfile : Profile
 {
-	public class PlayerProfile : Profile
+	public PlayerProfile()
 	{
-		public PlayerProfile()
-		{
-			CreateMap<PlayerDto, Player>().ReverseMap();
-			//CreateMap<Player, playerDetailDto>();
-		}
+		CreateMap<PlayerDto, Player>().ReverseMap();
+		CreateMap<Player, PlayerDetailDto>();
 	}
 }

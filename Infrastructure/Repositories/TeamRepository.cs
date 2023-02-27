@@ -2,6 +2,7 @@
 using Application.Features.Player.Queries.GetPlayers;
 using Domain.Entites;
 using Infrastructure.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -11,9 +12,9 @@ namespace Infrastructure.Repositories
 		{
 		}
 
-		//public async Task<List<Player>> getListPlayers(Guid TeamId)
-		//{
-		//	//return await _context.Player  //.Groups.Where(g => g.TournamentId == tournamentId).ToListAsync();
-		//}
+		public async Task<List<Player>> getListPlayers(Guid TeamId)
+		{
+			return await _context.Players.Where(g => g.TeamId == TeamId).ToListAsync();
+		}
 	}
 }

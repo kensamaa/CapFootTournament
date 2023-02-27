@@ -12,16 +12,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.MappingProfiles
+namespace Application.MappingProfiles;
+
+public class TournamentProfile : Profile
 {
-    public class TournamentProfile : Profile
+    public TournamentProfile()
     {
-        public TournamentProfile()
-        {
-            CreateMap<TournamentDto, Tournament>().ReverseMap();
-            CreateMap<Tournament, TournamentDetailsDto>();
+        CreateMap<TournamentDto, Tournament>().ReverseMap();
+        CreateMap<Tournament, TournamentDetailsDto>();
 			CreateMap<CreateTournamentCommand, Tournament>();
 			CreateMap<UpdateTournamentCommand, Tournament>();
 		}
-    }
 }

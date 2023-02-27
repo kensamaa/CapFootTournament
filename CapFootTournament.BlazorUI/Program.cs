@@ -12,4 +12,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<ICapgeminiContract, CapgeminiService>();
 builder.Services.AddScoped<ITournamentContract, TournamentService>();
+builder.Services.AddScoped<ITeamContract, TeamService>();
+builder.Services.AddScoped<IPlayerContract, PlayerService>();
 await builder.Build().RunAsync();

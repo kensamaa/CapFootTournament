@@ -28,9 +28,9 @@ public static class PersistenceServiceRegistration
 		services.AddScoped<IGroupRepository, GroupRepository>();
 		services.AddScoped<ITeamRepository, TeamRepository>();
 		services.AddScoped<IPlayerRepository, PlayerRepository>();
+		services.AddScoped<IGoalRepository, GoalRepository>();
 
 		return services;
-
 	}
 }
 

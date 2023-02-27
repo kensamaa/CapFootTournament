@@ -1,0 +1,44 @@
+﻿@page "/Teams"
+@using CapFootTournament.BlazorUI.Contracts;
+@using CapFootTournament.BlazorUI.Services;
+@inject ITeamContract TeamService
+@inject NavigationManager UriHelper
+
+<PageTitle>Teams</PageTitle>
+
+<h3>Teams</h3>
+
+<table class="table table-border table-hover">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Name</th>
+			<th>Points</th>
+			<th>City</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var team in TeamService.ListTeam)
+		{
+			<tr @onclick="() => NavigateToTeam(team.Id)">
+				<th>
+					@team.Id
+				</th>
+				<th>@team.Name</th>
+				<th>@team.Points</th>
+				<th>@team.City</th>
+			</tr>
+		}
+	</tbody>
+</table>
+@code {
+	public void NavigateToTeam(String pId)
+	{
+		UriHelper.NavigateTo("/Team/" + pId);
+	}
+	protected override async Task OnInitializedAsync()
+	{
+		await TeamService.GetAllTeamsAsync();
+	}
+}
+

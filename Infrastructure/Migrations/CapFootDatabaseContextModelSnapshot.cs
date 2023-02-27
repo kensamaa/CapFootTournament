@@ -59,23 +59,23 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("71969230-2598-4b03-8651-860eff85fe04"),
+                            Id = new Guid("b889a56c-dfa3-43f4-8d93-ad82c099879c"),
                             City = "Casablanca",
                             Country = "Morocco",
-                            DateCreated = new DateTime(2023, 2, 25, 22, 32, 47, 913, DateTimeKind.Local).AddTicks(1087),
+                            DateCreated = new DateTime(2023, 2, 27, 0, 51, 58, 305, DateTimeKind.Local).AddTicks(9702),
                             DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2023, 2, 25, 22, 32, 47, 913, DateTimeKind.Local).AddTicks(1146),
+                            DateModified = new DateTime(2023, 2, 27, 0, 51, 58, 305, DateTimeKind.Local).AddTicks(9749),
                             Name = "TS",
                             NumberOfTeams = 16
                         },
                         new
                         {
-                            Id = new Guid("7a5a5b96-f365-4214-a5e2-a743fc8d95d6"),
+                            Id = new Guid("593f57f6-2b6d-43d9-892d-39977862ce87"),
                             City = "Rabat",
                             Country = "Morocco",
-                            DateCreated = new DateTime(2023, 2, 25, 22, 32, 47, 913, DateTimeKind.Local).AddTicks(1154),
+                            DateCreated = new DateTime(2023, 2, 27, 0, 51, 58, 305, DateTimeKind.Local).AddTicks(9754),
                             DateCreation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateModified = new DateTime(2023, 2, 25, 22, 32, 47, 913, DateTimeKind.Local).AddTicks(1156),
+                            DateModified = new DateTime(2023, 2, 27, 0, 51, 58, 305, DateTimeKind.Local).AddTicks(9756),
                             Name = "TS",
                             NumberOfTeams = 8
                         });
@@ -121,7 +121,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("PlayerId");
 
-                    b.ToTable("Card");
+                    b.ToTable("Cards");
                 });
 
             modelBuilder.Entity("Domain.Entites.Goal", b =>
@@ -152,7 +152,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("PlayerId");
 
-                    b.ToTable("Goal");
+                    b.ToTable("Goals");
                 });
 
             modelBuilder.Entity("Domain.Entites.Groupe", b =>
@@ -200,6 +200,9 @@ namespace Infrastructure.Migrations
                     b.Property<string>("FamilyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsCaptain")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -290,7 +293,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("43a0c274-44a7-41c0-aeb6-32ee239108f2"),
+                            Id = new Guid("5fdde603-2bef-420b-a542-39cfe0dab1e1"),
                             CountryOrganisation = "Maroc",
                             Name = "Tournoi Ramadan",
                             isFinished = false,

@@ -17,6 +17,8 @@ public class CapFootDatabaseContext : DbContext
     public DbSet<Team> Teams { get; set; }
     public DbSet<Player> Players { get; set; }
 	public DbSet<CapgeminiTournament> CapgeminiTournaments { get; set; }
+    public DbSet<Goal> Goals { get; set; }
+    public DbSet<Card> Cards { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CapFootDatabaseContext).Assembly);

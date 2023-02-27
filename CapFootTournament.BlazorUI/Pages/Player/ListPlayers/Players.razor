@@ -1,0 +1,45 @@
+﻿@page "/Players"
+@using CapFootTournament.BlazorUI.Contracts;
+@using CapFootTournament.BlazorUI.Services;
+@inject IPlayerContract PlayerService
+
+<PageTitle>Players</PageTitle>
+
+<h3>Players</h3>
+
+
+<table class="table table-border table-hover">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Name</th>
+			<th>FamilyName</th>
+			<th>Email</th>
+			<th>IsCaptain</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var player in PlayerService.ListPlayer)
+		{
+			<tr>
+				<th>
+					@player.Id
+				</th>
+				<th>@player.Name</th>
+				<th>@player.FamilyName</th>
+				<th>@player.Email</th>
+				<th>@returnValue(@player.IsCaptain)</th>
+			</tr>
+		}
+	</tbody>
+</table>
+@code {
+	private string returnValue(bool value)
+	{
+		return value ? "Yes" : "No";
+	}
+	protected override async Task OnInitializedAsync()
+	{
+		await PlayerService.GetAllPlayersAsync();
+	}
+}

@@ -1,4 +1,5 @@
 ﻿using Application.Contracts.Repository;
+using Application.Features.Player.Queries.GetPlayers;
 using AutoMapper;
 using MediatR;
 using System;
@@ -27,8 +28,12 @@ namespace Application.Features.Team.Queries.GetTeams
 		{
 			//query database
 			var Team = await TeamRepositor.GetByIdAsync(request.Id);
+			var playerList = await TeamRepositor.getListPlayers(Team.Id);
 
 			var data =Mapper.Map<TeamDetailDto>(Team);
+			var playersDto= Mapper.Map<List<PlayerDto>>(playerList);
+			data.Listplayerss.AddRange(playersDto);
+
 			return data;
 		}
 	}

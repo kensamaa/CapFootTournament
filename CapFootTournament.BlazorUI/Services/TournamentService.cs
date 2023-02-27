@@ -1,8 +1,6 @@
 ﻿using CapFootTournament.BlazorUI.Contracts;
 using CapFootTournament.BlazorUI.Models;
-using CapFootTournament.BlazorUI.Pages;
 using System.Net.Http.Json;
-using static System.Net.WebRequestMethods;
 
 namespace CapFootTournament.BlazorUI.Services
 {
