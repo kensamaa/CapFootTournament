@@ -1,7 +1,23 @@
 ﻿@page "/Team/{id}"
+@using CapFootTournament.BlazorUI.Contracts;
+@using CapFootTournament.BlazorUI.Services;
+@using CapFootTournament.BlazorUI.Models;
+@inject ITeamContract TeamService
 
-<h3>TeamDetail</h3>
+<PageTitle>Team Details</PageTitle>
+<div class="container">
+	<h3 class="mb-4 ">TeamDetail</h3>
+</div>
+
 
 @code {
-
+	[Parameter]
+	public String Id { get; set; }
+	TeamDetailM teamDetail = new TeamDetailM();
+	protected override async Task OnInitializedAsync()
+	{
+		//CapgeminiId = new Guid(Id);
+		await TeamService.GetTeamByIdAsync(Id);
+		teamDetail = TeamService.TeamDetails;
+	}
 }

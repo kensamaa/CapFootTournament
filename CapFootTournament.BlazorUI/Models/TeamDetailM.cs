@@ -1,6 +1,6 @@
 ﻿namespace CapFootTournament.BlazorUI.Models
 {
-	public class TeamDetail
+	public class TeamDetailM
 	{
 		public string Name { get; set; } = string.Empty;
 		public Guid GroupeId { get; set; }

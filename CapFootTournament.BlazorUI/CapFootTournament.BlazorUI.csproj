@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Composants\" />
+    <Folder Include="Pages\Player\playerDetail\" />
   </ItemGroup>
 
 </Project>

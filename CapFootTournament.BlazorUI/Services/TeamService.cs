@@ -9,7 +9,7 @@ namespace CapFootTournament.BlazorUI.Services
 		private readonly HttpClient httpClient;
 
 		public List<Team> ListTeam { get ; set ; }= new List<Team>();
-		public TeamDetail TeamDetails { get; set; } = new TeamDetail();
+		public TeamDetailM TeamDetails { get; set; } = new TeamDetailM();
 		public TeamService(HttpClient httpClient)
 		{
 			this.httpClient = httpClient;
@@ -21,9 +21,9 @@ namespace CapFootTournament.BlazorUI.Services
 				ListTeam = res;
 		}
 
-		public async Task GetTeamByIdAsync(Guid id)
+		public async Task GetTeamByIdAsync(string id)
 		{
-			var res = await httpClient.GetFromJsonAsync<TeamDetail>($"{Constant.API}/Team/{id}");
+			var res = await httpClient.GetFromJsonAsync<TeamDetailM>($"{Constant.API}/Team/{id}");
 			if (res != null)
 				TeamDetails = res;
 		}
